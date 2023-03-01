@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>String Sort</title>
+
+
+	<style>
+	
+		#display{
+			text-align: center;
+		}
+	
+		#select {
+			margin: auto;
+			margin-top: 100px;
+			display: block;
+		}
+		</style>
+</head>
+<body>
+	<h1 id="display"> String Sort</h1>
+<select name="" id="select">
+<option value="">Sort</option>
+<option value="asc">Ascending</option>
+<option value="des">Descending</option>
+</select>
+
+</body>
+
+<script>
+let display=document.getElementById("display");
+let animals = ['cat', 'dog', 'elephant', 'bee', 'ant'];
+let select=document.getElementById("select");
+
+	select.addEventListener("change",sortFun)
+function sortFun(){
+	if (select.value == "asc") {
+		console.log(select.value)
+		animals.sort((a,b)=>{
+
+if(a>b){
+return 1
+}else{
+	return -1
+}
+			return 0
+		})
+display.innerText= " String Ascending Order:- "+animals.join(" ");
+		display.style.color = "green"
+	}
+
+	if (select.value == "des") {
+		animals.sort((a,b)=>{
+			if (a <b) {
+				return 1
+			} else {
+				return -1
+			}
+			return 0
+
+
+		})
+	display.innerText =  "String Descending Order:- "+animals.join(" ");
+	display.style.color="red"
+}
+}
+
+	
+
+</script>
+</html>

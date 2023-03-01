@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Favourites Page</title>
+  <style>
+    /* All Your css for Favourites page goes here  */
+
+    #fav-container {
+      display: grid;
+      width: 90%;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      margin: auto;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="nav">
+    <h1>Masai Restaurant Finder</h1>
+    <a href="./index.html">Home</a>
+    <a href="./favourites.html">Favourites</a>
+  </div>
+  <h1 id="total">Your a total <span id="fav-total">0</span> elements in the favourites</h1>
+  <div id="fav-container">
+    <!-- Here Append All the Favourites-->
+  </div>
+</body>
+<script>
+  // All your JS code for Favourites Page goes here
+
+
+  let container = document.getElementById("fav-container");
+
+  let favData = JSON.parse(localStorage.getItem("favourites")) || []
+
+
+  let favTotal = document.getElementById("fav-total").innerText = favData.length;
+  DisplayData(favData)
+
+
+  function DisplayData(data) {
+    container.innerHTML = null;
+    data.forEach((elem, i) => {
+      let card = document.createElement('div');
+      let image = document.createElement('img');
+      image.setAttribute("src", elem.image)
+      let name = document.createElement('h2');
+      name.innerText = elem.name;
+      let price = document.createElement('h3');
+      price.innerText = "₹ " + elem.price_starts_from;
+      let types = document.createElement('p');
+      types.innerText = elem.type;
+      let rating = document.createElement('p');
+      rating.innerText = elem.rating;
+      let favourites = document.createElement('button');
+
+      favourites.innerText = "Delete"
+      favourites.addEventListener("click", () => {
+
+        favData = favData.filter((elem, index) => {
+          return index !== i;
+        })
+        localStorage.setItem("favourites", JSON.stringify(favData));
+
+        let removeData = JSON.parse(localStorage.getItem("remove")) || [];
+        removeData.push(elem);
+        console.log(removeData)
+        localStorage.setItem("remove", JSON.stringify(removeData));
+
+        DisplayData(favData)
+      })
+      card.append(image, name, price, types, rating, favourites)
+      container.append(card)
+    })
+  }
+
+
+
+
+</script>
+
+</html>

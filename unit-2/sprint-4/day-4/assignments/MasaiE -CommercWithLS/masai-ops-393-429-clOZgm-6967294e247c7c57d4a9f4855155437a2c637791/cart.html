@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cart Page</title>
+  <style>
+    .nav {
+      display: flex;
+      justify-content: space-around;
+      width: 100%;
+      height: 60px;
+
+      box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+    }
+
+    .nav h1 {
+      position: relative;
+      bottom: 12px;
+    }
+
+    a {
+      text-decoration: none;
+      font-size: 20px;
+      position: relative;
+      top: 17px;
+    }
+
+    #filter {
+      display: block;
+      margin: auto;
+      margin-top: 20px;
+      height: 30px;
+      font-size: 20px;
+    }
+
+    #cart-container {
+      margin: auto;
+      width: 90%;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+
+      gap: 20px;
+      margin-top: 30px;
+    }
+
+    #cart-container>div {
+      height: 430px;
+
+
+      box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+    }
+
+    img {
+      width: 70%;
+      position: relative;
+      left: 30px;
+    }
+
+    #details {
+      font-size: 13px;
+    }
+
+    h2,
+    p,
+    h3 {
+      position: relative;
+      bottom: 25px;
+      left: 10px;
+    }
+
+    /* button {
+      position: relative;
+      bottom: 34px;
+      left: 20px;
+       background-color:
+        #2ab5f6; 
+      color: wheat;
+      border: none;
+      height: 25px;
+      width: 20px;
+      border-radius: 5px;
+    } */
+
+    #add,
+    button {
+      position: relative;
+      bottom: 34px;
+      left: 70px;
+      background-color:
+        #2ab5f6;
+      color: wheat;
+      border: none;
+      height: 25px;
+      border-radius: 5px;
+    }
+
+
+
+    span {
+
+      position: relative;
+      bottom: 34px;
+      left: 70px;
+      border: none;
+      height: 25px;
+      width: 20px;
+      border-radius: 5px;
+    }
+
+
+
+    /* Write all necessery css here  */
+  </style>
+</head>
+
+<body>
+  <div class="nav">
+    <h1>Masai E-Commerce</h1>
+    <a href="./index.html">Home</a>
+    <a href="./cart.html">Cart</a>
+  </div>
+  <h1 id="total">Your Total cart Price is:- <span id="cart-total">0</span></h1>
+  <div id="cart-container">
+    <!-- Here Append All the cart Products  -->
+  </div>
+</body>
+<script>
+  // Write all necessery JS here 
+  let container = document.getElementById('cart-container');
+  let cartTotal = document.getElementById('cart-total');
+  let cartData = JSON.parse(localStorage.getItem("cart")) || [];
+
+  ReduceAll()
+  function ReduceAll() {
+    let total = cartData.reduce((acu, item) => {
+      return acu + item.price * item.quantity
+    }, 0)
+
+    cartTotal.innerText = total;
+
+  }
+
+
+
+  displayData(cartData)
+  function displayData(data) {
+    container.innerHTML = null;
+    data.forEach((element, i) => {
+      let card = document.createElement('div');
+      let image = document.createElement('img');
+      image.setAttribute("src", element.img)
+      let brand = document.createElement('h2');
+      brand.innerText = element.brand;
+      let price = document.createElement('h3');
+
+      price.innerText = "₹ " + element.price;
+
+      let details = document.createElement('p');
+      details.setAttribute("id", "details")
+      details.innerText = element.details;
+      let category = document.createElement('p');
+      category.innerText = element.category;
+
+      let remove = document.createElement('button');
+      remove.setAttribute("id", "add")
+      remove.innerText = "Remove";
+      remove.addEventListener("click", () => {
+        cartData = cartData.filter((el, index) => {
+          return index != i;
+        })
+
+        localStorage.setItem("cart", JSON.stringify(cartData));
+        let removeData = JSON.parse(localStorage.getItem("remove-item")) || [];
+        removeData.push(element)
+        localStorage.setItem("remove-item", JSON.stringify(removeData));
+        displayData(cartData)
+      });
+
+      let increase = document.createElement('button');
+      increase.innerText = " + ";
+      increase.addEventListener("click", () => {
+        increaseQuant(element, i)
+      })
+
+
+      let span = document.createElement('span');
+      span.innerText = element.quantity;
+      console.log(element.quantity)
+      let decreased = document.createElement('button');
+      decreased.innerText = "-";
+      decreased.addEventListener("click", () => {
+        decreasedQuant(element, i)
+      })
+
+      card.append(image, brand, price, details, category, increase, span, decreased, remove)
+      container.append(card)
+
+    });
+  }
+  function increaseQuant(element, i) {
+    cartData[i].quantity++
+    console.log(cartData)
+    localStorage.setItem("cart", JSON.stringify(cartData));
+    ReduceAll()
+    displayData(cartData)
+  }
+
+  function decreasedQuant(element, i) {
+    cartData[i].quantity--
+    console.log(cartData)
+    localStorage.setItem("cart", JSON.stringify(cartData));
+    ReduceAll()
+    displayData(cartData)
+  }
+
+</script>
+
+</html>

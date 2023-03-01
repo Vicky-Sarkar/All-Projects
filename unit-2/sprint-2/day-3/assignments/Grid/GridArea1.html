@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<style>
+		#container {
+			margin-top: 50px;
+			display: grid;
+			grid-template-columns: 200px 200px 200px 200px;
+			grid-template-rows: 150px 150px 150px 150px;
+			gap: 15px;
+			justify-content: center;
+			grid-template-areas: "a a b b" "c d d d" " e e e e";
+		}
+
+		#container>div {
+			background-color: #444444;
+
+			color: white;
+			border-radius: 20px;
+		}
+
+		#container>div>p {
+			font-size: 40px;
+			margin-left: 30px;
+		}
+
+		#container>div:nth-child(1) {
+			grid-area: a;
+		}
+
+		#container>div:nth-child(2) {
+			grid-area: b;
+		}
+
+		#container>div:nth-child(3) {
+			grid-area: c;
+		}
+
+		#container>div:nth-child(4) {
+			grid-area: d;
+		}
+
+		#container>div:nth-child(5) {
+			grid-area: e;
+		}
+	</style>
+</head>
+
+<body>
+	<div id="container">
+		<div>
+			<p>A</p>
+		</div>
+		<div>
+			<p>B</p>
+		</div>
+		<div>
+			<p>C</p>
+		</div>
+		<div>
+			<p>D</p>
+		</div>
+		<div>
+			<p>E</p>
+		</div>
+	</div>
+</body>
+
+</html>

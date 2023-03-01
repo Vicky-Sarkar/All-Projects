@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Home Page</title>
+  <style>
+    /* All CSS For Home Page Goes Here  */
+    #product-container {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      /* grid-auto-rows: 200px; */
+      height: 120px;
+      width: 180px;
+      justify-content: center;
+      margin: auto;
+
+    }
+
+    #product-container>div {
+      border: 1px solid red;
+      /* height: 500px; */
+    }
+
+    #cart {
+      display: block;
+      margin: auto;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="nav">
+    <h1>Web E-Commerce</h1>
+    <a href="./index.html">Home</a>
+    <a href="./cart.html">Cart</a>
+  </div>
+  <h1 id="alert"></h1>
+  <main>
+    <div id="filter">
+      <div id="brand-filter">
+        <h2>Filter By Brands</h2>
+        <div>
+          <input type="checkbox" id="roadster" value="roadster" />
+          <p>Roadster</p>
+        </div>
+        <div>
+          <input type="checkbox" id="blackberrys" value="blackberrys" />
+          <p>Blackberrys</p>
+        </div>
+        <div>
+          <input type="checkbox" id="van-heusen" value="van-heusen" />
+          <p>Van Heusen</p>
+        </div>
+        <div>
+          <input type="checkbox" id="allen-solly" value="allen-solly" />
+          <p>Allen Solly</p>
+        </div>
+        <div>
+          <input type="checkbox" id="twills" value="twills" />
+          <p>Twills</p>
+        </div>
+      </div>
+      <div id="category-filter">
+        <h2>Filter By Categories</h2>
+        <div>
+          <input type="checkbox" id="men" value="men" />
+          <p>Men</p>
+        </div>
+        <div>
+          <input type="checkbox" id="women" value="women" />
+          <p>Women</p>
+        </div>
+        <div>
+          <input type="checkbox" id="homedecor" value="homedecor" />
+          <p>Homedecor</p>
+        </div>
+        <div>
+          <input type="checkbox" id="kids" value="kids" />
+          <p>Kids</p>
+        </div>
+      </div>
+    </div>
+    <div id="product-container">
+      <div>
+        <!-- Here Append All the Products  -->
+      </div>
+    </div>
+  </main>
+</body>
+<script type="module">
+  // All Your Script for Home Page Goes Here
+
+  // brand
+  // category
+  // image
+  // price
+  // title
+  let aleart = document.getElementById("alert")
+  let container = document.getElementById("product-container")
+  let cartData = JSON.parse(localStorage.getItem("cart")) || []
+
+  //console.log(cartData[1].id)
+
+
+
+  let filterData = document.getElementById("filter")
+
+
+  let FetchData = []
+
+  let roadster = document.getElementById("roadster")
+  roadster.addEventListener("click", () => {
+    let roadsterData = FetchData.filter((el) => {
+      return roadster.value === el.brand
+
+    })
+    DIsplayData(roadsterData)
+  })
+
+
+  let Blackberrys = document.getElementById("blackberrys")
+  Blackberrys.addEventListener("click", () => {
+    let BlackberrysData = FetchData.filter((el) => {
+      return Blackberrys.value === el.brand
+
+    })
+    DIsplayData(BlackberrysData)
+  })
+
+
+  let twills = document.getElementById("twills")
+  twills.addEventListener("click", () => {
+    let twillsData = FetchData.filter((el) => {
+      return twills.value === el.brand
+
+    })
+    DIsplayData(twillsData)
+  })
+
+
+
+  let solly = document.getElementById("allen-solly")
+  solly.addEventListener("click", () => {
+    let sollyData = FetchData.filter((el) => {
+      return solly.value === el.brand
+
+    })
+    DIsplayData(sollyData)
+  })
+
+
+
+
+
+
+  let heusen = document.getElementById("van-heusen")
+  heusen.addEventListener("click", () => {
+    let heusenData = FetchData.filter((el) => {
+      return heusen.value === el.brand
+
+    })
+    DIsplayData(heusenData)
+  })
+
+
+
+
+  // filterByCatagory
+
+
+  let men = document.getElementById("men")
+  men.addEventListener("click", () => {
+    let menData = FetchData.filter((el) => {
+      return men.value === el.category
+
+    })
+    DIsplayData(menData)
+  })
+
+
+  let women = document.getElementById("women")
+  women.addEventListener("click", () => {
+    let womenData = FetchData.filter((el) => {
+      return women.value === el.category
+
+    })
+    DIsplayData(womenData)
+  })
+
+
+
+
+
+
+  let homedecor = document.getElementById("homedecor")
+  homedecor.addEventListener("click", () => {
+    let homedecorData = FetchData.filter((el) => {
+      return homedecor.value === el.category
+
+    })
+    DIsplayData(homedecorData)
+  })
+
+  let kids = document.getElementById("kids")
+  homedecor.addEventListener("click", () => {
+    let kidsData = FetchData.filter((el) => {
+      return kids.value === el.category
+
+    })
+    DIsplayData(kidsData)
+  })
+
+
+
+
+
+
+  fetchData()
+  async function fetchData() {
+    try {
+      let res = await fetch(`https://dbioz2ek0e.execute-api.ap-south-1.amazonaws.com/mockapi/get-products`)
+
+      let data = await res.json()
+      // console.log(data.data)
+      FetchData = data.data;
+      DIsplayData(data.data)
+    } catch {
+      console.log("error")
+    }
+  }
+
+
+
+
+
+
+
+
+
+
+  function DIsplayData(data) {
+    container.innerHTML = null;
+    data.forEach((el) => {
+
+      let card = document.createElement("div")
+      let img = document.createElement("img")
+      img.setAttribute("src", el.image)
+
+      let title = document.createElement("h4")
+      title.innerText = el.title;
+      let brand = document.createElement("p")
+      brand.innerText = el.brand;
+      let category = document.createElement("p")
+      category.innerText = el.category;
+
+      let price = document.createElement("p")
+      price.innerText = el.price;
+
+      let add_to_cart = document.createElement("button")
+      add_to_cart.innerText = "Add To Cart";
+      add_to_cart.setAttribute("id", "cart")
+
+      add_to_cart.addEventListener("click", () => {
+        let falg = false;
+        for (let i = 0; i < cartData.length; i++) {
+          if (cartData[i].id === el.id) {
+            falg = true
+            break;
+          }
+        }
+
+        if (falg !== true) {
+          cartData.push({ ...el.id, quantity: 1 })
+          localStorage.setItem("cart", JSON.stringify(cartData))
+          aleart.innerText = "Product added to The cart"
+        } else {
+          aleart.innerText = "Product already in the cart"
+        }
+
+
+      })
+
+      card.append(img, title, brand, category, price, add_to_cart)
+
+      container.append(card)
+    })
+  }
+
+
+
+</script>
+
+</html>

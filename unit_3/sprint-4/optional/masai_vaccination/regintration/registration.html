@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="./registration.css">
+	<link rel="stylesheet" href="../index.css">
+	<title>Document</title>
+</head>
+
+<body>
+	<nav id="navbar">
+	</nav>
+
+
+	<div id="container">
+		<h3> Vaccination Registration Form</h3>
+
+		<form id="from">
+
+			<label class="unique-id">Unique ID</label>
+			<input type="number" id="uniqueId" class="inputTag" placeholder="Unique ID ">
+			<p id="idalert"></p>
+			<label class="unique-id">Name</label>
+			<input type="text" id="name" class="inputTag" placeholder="Name">
+			<p id="namealert"></p>
+
+
+			<label class="unique-id">Age</label>
+			<input type="number" class="inputTag" id="age" placeholder="Age">
+			<p id="agealert"></p>
+			<label class="unique-rd">Designation</label>
+
+			<div id="desig">
+
+				<label for="employee" class="unique-r">Employee</label>
+				<input name="designation" type="radio" class="unique-r" value="employee" id="employee">
+
+				<label for="student" class="unique-r">Student</label>
+				<input name="designation" type="radio" class="unique-r" value="student" id="student">
+
+			</div>
+
+
+			<label class="unique-rd">Priority</label>
+			<div id="desig">
+
+				<label for="p0" class="unique-r">p0</label>
+				<input name="priority" type="radio" class="unique-r" id="p0" value="p0">
+
+				<label for="p1" class="unique-r">P1</label>
+				<input name="priority" type="radio" class="unique-r" id="p1" value="p1">
+
+				<label for="p2" class="unique-r">P2</label>
+				<input name="priority" type="radio" class="unique-r" id="p2" value="p2">
+				<label for="p3" class="unique-r">P3</label>
+				<input name="priority" type="radio" class="unique-r" id="p3" value="p3">
+			</div>
+
+
+			<label class="unique-id">Vaccine</label>
+			<span><select name="" id="select">
+					<option value="vaccine">Vaccine</option>
+					<option value="covishield">Covishield</option>
+					<option value="covaxin">Covaxin</option>
+					<option value="sputnik">Sputnik</option>
+				</select>
+			</span>
+
+
+
+
+
+
+			<input type="submit" id="sub">
+		</form>
+	</div>
+
+
+</body>
+<script src="./registration.js" type="module"></script>
+
+</html>

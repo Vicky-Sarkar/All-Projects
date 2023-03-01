@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Home Page</title>
+  <style>
+    /* All Your css for Home page goes here  */
+    #restaurant-container {
+      display: grid;
+      width: 90%;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      margin: auto;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="nav">
+    <h1>Masai Restaurant Finder</h1>
+    <a href="./index.html">Home</a>
+    <a href="./favourites.html">Favourites</a>
+  </div>
+  <select id="filter">
+    <option value="">Filter By Category</option>
+    <option value="cafe">cafe</option>
+    <option value="ethnic">ethnic</option>
+    <option value="fast_food">fast_food</option>
+  </select>
+  <h1 id="alert"></h1>
+  <div id="restaurant-container">
+    <!-- Here Append All the Products  -->
+  </div>
+</body>
+<script>
+  let container = document.getElementById("restaurant-container");
+  let alert = document.getElementById("alert")
+  let favData = JSON.parse(localStorage.getItem("favourites")) || [];
+  let dofilter = document.getElementById("filter");
+  let fitchedata = []
+  dofilter.addEventListener("change", () => {
+
+
+    console.log(fitchedata, dofilter.value)
+    let filterData = fitchedata.filter((el) => {
+      return el.type === dofilter.value;
+    })
+    DisplayData(filterData)
+  })
+
+
+
+  getData()
+  async function getData() {
+    const url = `https://dbioz2ek0e.execute-api.ap-south-1.amazonaws.com/mockapi/getrestaurants?limit=30`;
+    try {
+      let res = await fetch(url)
+
+      let data = await res.json()
+      fitchedata = data.data;
+      DisplayData(data.data)
+    } catch (error) {
+      console.log(error)
+    }
+
+  }
+
+
+  function DisplayData(data) {
+    container.innerHTML = ""
+    data.forEach((elem) => {
+
+      let card = document.createElement('div');
+      let image = document.createElement('img');
+      image.setAttribute("src", elem.image)
+      let name = document.createElement('h2');
+      name.innerText = elem.name;
+      let price = document.createElement('h3');
+      price.innerText = "₹ " + elem.price_starts_from;
+      let types = document.createElement('p');
+      types.innerText = elem.type;
+      let rating = document.createElement('p');
+      rating.innerText = elem.rating;
+      let favourites = document.createElement('button');
+
+      favourites.innerText = "Favourites"
+      favourites.addEventListener("click", () => {
+
+
+        let flag = false;
+        for (let i = 0; i < favData.length; i++) {
+          if (favData[i].id == elem.id) {
+            flag = true;
+            break;
+          }
+        }
+
+        if (flag == true) {
+          alert.innerText = "Restaurant Already in Favourites";
+        } else {
+          favData.push(elem);
+          localStorage.setItem("favourites", JSON.stringify(favData));
+          alert.innerText = "Restaurant Added To Favourites";
+        }
+
+      })
+      card.append(image, name, price, types, rating, favourites)
+      container.append(card)
+    })
+
+
+
+  }
+
+
+
+
+    // All your JS code for Home Page goes here
+</script>
+
+</html>

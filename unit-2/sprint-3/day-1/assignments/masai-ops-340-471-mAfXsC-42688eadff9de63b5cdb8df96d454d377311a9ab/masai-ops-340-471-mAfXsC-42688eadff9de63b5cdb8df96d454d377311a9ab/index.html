@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Masai Games</title>
+
+    <style>
+      body>#min{
+        display: flex;
+      }
+#min{
+  width: 100px;
+  height: 100px;
+  border: 1px solid red;;
+  
+}
+#max{
+  width: 100px;
+  height: 100px;
+  border: 1px solid red;;
+}
+
+#min-max{
+display: flex;
+ width: 30%;
+  height: auto;
+  margin: auto;
+  justify-content: space-between;
+  border: 1px solid red;;
+}
+
+#score{
+display: flex;
+ width: 30%;
+  height: 100px;
+  margin: auto;
+  justify-content: space-between;
+  border: 1px solid red;
+}
+
+
+
+#keypad{
+display: grid;
+grid-template-columns: repeat(3,1fr);
+grid-template-rows: repeat(3,80px);
+  width: 20%;
+   gap:10px; 
+
+  margin: auto;
+  justify-content: space-between;
+  border: 1px solid red;
+}
+
+button{
+font-size: 30px;
+  height: 60px;
+}
+#keypad>button:nth-child(10){
+  color: white;
+  position: relative;
+  left: 80px;
+  background-color: #820064;
+
+}
+#enter{
+  display: block;
+  margin: auto;
+  margin-top: 40px;
+}
+    </style>
+  </head>
+  <body>
+    <div id="min-max">
+      <div id="min"><h4>MIN</h4></div>
+      
+      <div id="max"><h4>MAX</h4></div>
+     
+    </div>
+   
+    <div id="score">
+      
+    </div>
+    <div id="keypad">
+   
+      <button>1</button>
+      <button>2</button>
+      <button>3</button>
+      <button>4</button>
+      <button>5</button>
+      <button>6</button>
+      <button>7</button>
+      <button>8</button>
+      <button>9</button>
+      <button>0</button>
+    </div>
+    <button id="enter">ENTER</button>
+  </body>
+  <script>
+  let keys = document.querySelectorAll("#keypad>button");
+    let score = document.querySelector("#score");
+ 
+    let output="";
+    let myNumber=[];
+    for (var i = 0; i <keys.length; i++){
+    keys[i].addEventListener("click",(event)=>{
+    let targetNumber = event.target.innerText;
+      output= output+ targetNumber;
+     score.innerText= output;
+      //console.log(output);
+     })
+    }
+     let min = document.querySelector("#min");
+    let max = document.querySelector("#max");
+    let enter = document.querySelector("#enter");
+enter.addEventListener("click",()=>{
+  myNumber.push(+output)
+  output = ""
+  score.innerText ="";
+//min.innerText= myNumber.join("")
+for(let i=0;i< myNumber.length;i++){
+let str= myNumber[i]
+  let max1 = -Infinity, min1 = Infinity;
+   
+     if(str >max1){
+      max1= str;
+     max.innerText = max1;
+     
+   }
+    if (str <min1) {
+       min1= str;
+        min.innerText = min1;
+        
+      }
+
+
+
+
+}
+
+
+})
+
+
+  </script>
+</html>

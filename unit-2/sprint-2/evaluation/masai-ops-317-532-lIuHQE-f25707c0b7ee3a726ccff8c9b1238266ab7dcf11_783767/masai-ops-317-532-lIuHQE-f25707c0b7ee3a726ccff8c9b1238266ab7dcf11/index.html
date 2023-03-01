@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Web-101 C2</title>
+    <style>
+
+       #top>h1,h1+p{
+        text-align: center;
+      } 
+
+      #top>div{
+display: flex;
+      }
+
+      #top> div>img{
+        width: 45%;
+        margin-top: 30px;
+      }
+
+      #top>div>div{
+        width: 50%;
+      }
+
+      
+       
+#mid>h1{
+  text-align: center;
+}
+
+#mid>div{
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  grid-template-rows:repeat(2,200px) ;
+
+  row-gap: 20px;
+  column-gap: 30px;
+  margin-top: 30px;
+}
+   
+#mid>div>div{
+  background: #455a64 ;
+
+  
+}
+#mid>div>div>img{
+  width: 10%;
+  position: relative;
+  top:25px;
+  left: 20px;
+}
+#mid>div>div>h3{
+  color: #ffffff;
+  position: relative;
+  top:15px;
+  left: 20px;
+}
+#mid>div>div> h3+p{
+  color: #ffffff;
+  width: 80%;
+  position: relative;
+  top:5px;
+  left: 20px;
+}
+    
+
+#bottom>h1{
+  text-align: center;
+}
+
+#bottom>div{
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  grid-template-rows:repeat(2,200px) ;
+
+  row-gap: 20px;
+  column-gap: 30px;
+  margin-top: 20px;
+}
+
+
+/* #bottom>div>div{
+ 
+ 
+  border:1px solid red;
+} */
+#bottom>div>div>h3{
+  position: relative;
+  left: 30px;
+}
+ul>li{
+  margin-top: -12px;
+  line-height: 20px;
+  font-size: 13px;
+  
+}
+
+/* Write all necessery styles here  */
+
+/* midium screen */
+@media all and (max-width:700px) and (min-width:400px) {
+   
+       #top>h1,h1+p{
+        text-align:center;
+      }  
+  
+  #top>div{
+display: flex;
+flex-direction: column;
+      }
+
+
+#mid>div{
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  grid-template-rows:repeat(2,200px) ;
+  row-gap: 20px;
+  column-gap: 30px;
+}
+#bottom>div{
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  grid-template-rows:repeat(2,200px) ;
+  row-gap: 20px;
+  column-gap: 30px;
+  margin-top: 20px;
+}
+}
+
+
+ /* small screen */
+@media all and (max-width:400px) and (min-width:150px) {
+    
+      #top>h1,h1+p{
+        text-align:center;
+      }  
+  #top>div{
+display: flex;
+flex-direction: column;
+      }
+
+#mid>div{
+  display: grid;
+  grid-template-columns: repeat(1,1fr);
+  grid-template-rows:repeat(2,200px) ;
+  row-gap: 20px;
+  column-gap: 30px;
+}
+#bottom>div{
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  grid-template-rows:repeat(2,200px) ;
+  row-gap: 20px;
+  column-gap: 30px;
+  margin-top: 20px;
+
+}
+}
+ </style>
+  </head>
+  <body>
+   
+    <div id="container">
+      <div id="top">
+        <h1>Trillo Workbench</h1>
+        <p>Server-side Low-code Platform</p>
+        <div>
+          <div>
+<h2>Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis ipsam minus, consequatur consequuntur harum odio
+  temporibus repellendus. </h2>
+
+<h3>90% Cost and Time-Saving</h3>
+
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Exercitationem at saepe, est dolores quas consequatur,
+  blanditiis earum aliquid error sapiente aspernatur! Adipisci amet est distinctio perferendis tempore, magni nemo
+  laudantium eveniet rem officiis dolore sunt in omnis molestias exercitationem .</p>
+          
+<h3>How Trillo Workbench achieves 90% saving</h3>
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Exercitationem at saepe, est dolores quas consequatur,
+  blanditiis earum aliquid error sapiente aspernatur! Adipisci amet est distinctio perferendis tempore, magni nemo
+  laudantium eveniet rem officiis dolore sunt in omnis molestias exercitationem.Lorem ipsum dolor sit amet, consectetur.</p>
+
+</div>
+
+<!-- Here should be one div for the text part and one image. Use flex to create the layout  -->
+       
+       <img src="https://www.trillo.io/wp-content/uploads/2022/04/trillo-Workbench-UI-Macbook.png" alt="">
+        </div>
+      </div>
+
+      <div id="mid">
+        <h1>Trillo Applications</h1>
+        <p>
+          Trillo Applications are customizable end-to-end applications (Open
+          Source Code). The can be used out of the box or extended.
+        </p>
+        <div>
+
+          <div>
+            <img src="https://www.rscb.org.in/Content/img/icons/eligibilitycriteria.png" alt="">
+            <h3>Trillo Text Matching</h3>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab aut, dolorum magni sequi incidunt ea.
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+            </p>
+          </div>
+
+            <div>
+              <img src="https://www.rscb.org.in/Content/img/icons/eligibilitycriteria.png" alt="">
+              <h3>Trillo Text Matching</h3>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab aut, dolorum magni sequi incidunt ea.
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+              </p>
+            </div>
+
+              <div>
+                <img src="https://www.rscb.org.in/Content/img/icons/eligibilitycriteria.png" alt="">
+                <h3>Trillo Text Matching</h3>
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab aut, dolorum magni sequi incidunt ea.
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                </p>
+              </div>
+
+                <div>
+                  <img src="https://www.rscb.org.in/Content/img/icons/eligibilitycriteria.png" alt="">
+                  <h3>Trillo Text Matching</h3>
+                  <p>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab aut, dolorum magni sequi incidunt ea.
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                  </p>
+                </div>
+
+                  <div>
+                    <img src="https://www.rscb.org.in/Content/img/icons/eligibilitycriteria.png" alt="">
+                    <h3>Trillo Text Matching</h3>
+                    <p>
+                      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab aut, dolorum magni sequi incidunt ea.
+                      Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                    </p>
+                  </div>
+                  
+                    <div>
+                      <img src="https://www.rscb.org.in/Content/img/icons/eligibilitycriteria.png" alt="">
+                      <h3>Trillo Text Matching</h3>
+                      <p>
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab aut, dolorum magni sequi incidunt ea.
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                      </p>
+                    </div>
+
+          <!-- Here you should have 6 children divs. Use grid to create the layout -->
+        </div>
+      </div>
+
+      <div id="bottom">
+        <h1>Use Cases</h1>
+        <p>
+          Trillo has readymade templates for several use cases that can be
+          customized quickly to deliver the solutions as per your requirements.
+          Some of these templates are described below.
+        </p>
+        <div>
+
+
+          <div>
+<h3>Data Warehouse</h3>
+<ul>
+  <li>
+    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</p>
+  </li>
+</ul>
+
+<ul>
+  <li>
+    <p>Lorem ipsum dolor sit amet consectetur.</p>
+  </li>
+</ul>
+
+<ul>
+  <li>
+    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</p>
+  </li>
+</ul>
+
+<ul>
+  <li>
+    <p>Lorem ipsum dolor sit amet consectetur.</p>
+  </li>
+</ul>
+
+
+
+<ul>
+  <li>
+    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</p>
+  </li>
+</ul>
+
+<ul>
+  <li>
+    <p>Lorem ipsum dolor sit amet consectetur.</p>
+  </li>
+</ul>
+          </div>
+
+
+<div>
+  <h3>Data Warehouse</h3>
+  <ul>
+    <li>
+      <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</p>
+    </li>
+  </ul>
+
+  <ul>
+    <li>
+      <p>Lorem ipsum dolor sit amet consectetur.</p>
+    </li>
+  </ul>
+
+  <ul>
+    <li>
+      <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</p>
+    </li>
+  </ul>
+
+  <ul>
+    <li>
+      <p>Lorem ipsum dolor sit amet consectetur.</p>
+    </li>
+  </ul>
+
+
+
+  <ul>
+    <li>
+      <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</p>
+    </li>
+  </ul>
+
+  <ul>
+    <li>
+      <p>Lorem ipsum dolor sit amet consectetur.</p>
+    </li>
+  </ul>
+</div>
+
+<div>
+  <h3>Data Warehouse</h3>
+  <ul>
+    <li>
+      <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</p>
+    </li>
+  </ul>
+
+  <ul>
+    <li>
+      <p>Lorem ipsum dolor sit amet consectetur.</p>
+    </li>
+  </ul>
+
+  <ul>
+    <li>
+      <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</p>
+    </li>
+  </ul>
+
+  <ul>
+    <li>
+      <p>Lorem ipsum dolor sit amet consectetur.</p>
+    </li>
+  </ul>
+
+
+
+  <ul>
+    <li>
+      <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</p>
+    </li>
+  </ul>
+
+  <ul>
+    <li>
+      <p>Lorem ipsum dolor sit amet consectetur.</p>
+    </li>
+  </ul>
+</div>
+
+<div>
+  <h3>Data Warehouse</h3>
+  <ul>
+    <li>
+      <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</p>
+    </li>
+  </ul>
+
+  <ul>
+    <li>
+      <p>Lorem ipsum dolor sit amet consectetur.</p>
+    </li>
+  </ul>
+
+  <ul>
+    <li>
+      <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</p>
+    </li>
+  </ul>
+
+  <ul>
+    <li>
+      <p>Lorem ipsum dolor sit amet consectetur.</p>
+    </li>
+  </ul>
+
+
+
+  <ul>
+    <li>
+      <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</p>
+    </li>
+  </ul>
+
+  <ul>
+    <li>
+      <p>Lorem ipsum dolor sit amet consectetur.</p>
+    </li>
+  </ul>
+</div>
+
+<div>
+  <h3>Data Warehouse</h3>
+  <ul>
+    <li>
+      <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</p>
+    </li>
+  </ul>
+
+  <ul>
+    <li>
+      <p>Lorem ipsum dolor sit amet consectetur.</p>
+    </li>
+  </ul>
+
+  <ul>
+    <li>
+      <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</p>
+    </li>
+  </ul>
+
+  <ul>
+    <li>
+      <p>Lorem ipsum dolor sit amet consectetur.</p>
+    </li>
+  </ul>
+
+
+
+  <ul>
+    <li>
+      <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</p>
+    </li>
+  </ul>
+
+  <ul>
+    <li>
+      <p>Lorem ipsum dolor sit amet consectetur.</p>
+    </li>
+  </ul>
+</div>
+
+
+<div>
+  <h3>Data Warehouse</h3>
+  <ul>
+    <li>
+      <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</p>
+    </li>
+  </ul>
+
+  <ul>
+    <li>
+      <p>Lorem ipsum dolor sit amet consectetur.</p>
+    </li>
+  </ul>
+
+  <ul>
+    <li>
+      <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</p>
+    </li>
+  </ul>
+
+  <ul>
+    <li>
+      <p>Lorem ipsum dolor sit amet consectetur.</p>
+    </li>
+  </ul>
+
+
+
+  <ul>
+    <li>
+      <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</p>
+    </li>
+  </ul>
+
+  <ul>
+    <li>
+      <p>Lorem ipsum dolor sit amet consectetur.</p>
+    </li>
+  </ul>
+</div>
+          <!-- Here you should have 6 children divs. Use grid to create the layout -->
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

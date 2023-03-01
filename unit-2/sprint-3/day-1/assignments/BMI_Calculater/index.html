@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Calculator</title>
+  </head>
+  <body>
+<!-- bmi.textcontent = bmiValue.toFixed(1);
+Now user should have a status based on his bmi.
+bmi < 18.5 -> UnderWeight.
+  bmi >= 18.5 && bmi <= 24.9 -> Normal Weight.
+    bmi >= 25 && bmi <= 29.9 -> Overweight.
+      bmi >= 30 -> Obese.
+      Show the user's status in the span tag with id:- status. -->
+
+
+<!-- weight/(height^2)onclick=" CalculateBMI() -->
+
+    <h1>BMI Calculator</h1>
+    <input placeholder="Height" type="number" id="height" />
+    <input placeholder="Weight" type="number" id="weight" />
+    <button id="calculate">Calculate</button>
+    <h1>
+      Your BMI is:- <span id="bmi"></span>, that means you are
+      <span id="status"></span>
+    </h1>
+  </body>
+  <script>
+
+   
+  let button= document.getElementById("calculate");
+  button.addEventListener("click",()=>{
+   let height= parseInt(document.getElementById('height').value) ;
+    let weight = parseInt(document.getElementById('weight').value);
+     let result = document.getElementById('status');
+      total= (weight/((height**2)/10000)).toFixed(1);
+    
+       if (total <18.5) {
+     result.innerText="Under Weight";
+}else if(total >= 18.5 && total <= 24.9){
+  result.innerText = "Normal Weight";
+ }else if(total>=30){
+    result.innerText="Obese";
+ }
+
+  })
+
+  
+
+
+
+
+
+
+
+
+
+
+// if(total>18.5){
+//      bmi.innerText="Under Weight";
+// }else if(total >= 18.5 && total <= 24.9){
+//   bmi.innerText = "Normal Weight";
+// }else if(total>=30){
+//    bmi.innerText="Obese";
+// }
+
+
+
+    // bmi.textcontent = bmiValue.toFixed(1);
+    
+    //console.log( bmi.innerText= total.toFixed(1))
+  // }
+
+  </script>
+</html>

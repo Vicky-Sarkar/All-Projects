@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cart Page</title>
+  <style>
+    /* All Your css for Cart page goes here  */
+  </style>
+</head>
+
+<body>
+  <div class="nav">
+    <h1>Web E-Commerce</h1>
+    <a href="./index.html">Home</a>
+    <a href="./cart.html">Cart</a>
+  </div>
+  <h1 id="total">
+    Your total order value is :- <span id="cart-total">0</span>
+  </h1>
+  <div id="cart-container">
+    <!-- Here Append All the Cart Cards here-->
+  </div>
+</body>
+<script type="module">
+
+
+
+  // All Your Script for Home Page Goes Here
+
+  // brand
+  // category
+  // image
+  // price
+  // title
+
+  let container = document.getElementById("cart-container")
+  let cartData = JSON.parse(localStorage.getItem("cart")) || []
+
+  let ids = {}
+  for (let i = 0; i < cartData.length; i++) {
+
+    // if ([i].id == undefined) {
+    ids.push(cartData[i])
+    //}
+
+
+  }
+  console.log(ids)
+
+  fetchData()
+  async function fetchData() {
+    try {
+      let res = await fetch(`https://dbioz2ek0e.execute-api.ap-south-1.amazonaws.com/mockapi/get-products/${4}`)
+      let data = await res.json()
+      console.log(data.data)
+      DIsplayData(data.data)
+    } catch {
+      console.log("error")
+    }
+  }
+
+
+  function DIsplayData(data) {
+    container.innerHTML = null;
+    data.forEach((el) => {
+
+      let card = document.createElement("div")
+      let img = document.createElement("img")
+      img.setAttribute("src", el.image)
+
+      let title = document.createElement("h4")
+      title.innerText = el.title;
+      let brand = document.createElement("p")
+      brand.innerText = el.brand;
+      let category = document.createElement("p")
+      category.innerText = el.category;
+
+      let price = document.createElement("p")
+      price.innerText = el.price;
+
+      let add_to_cart = document.createElement("button")
+      add_to_cart.innerText = "Add To Cart";
+      add_to_cart.setAttribute("id", "cart")
+
+      add_to_cart.addEventListener("click", () => {
+        let falg = false;
+        for (let i = 0; i < cartData.length; i++) {
+          if (cartData[i].id === el.id) {
+            falg = true
+            break;
+          }
+        }
+
+        if (falg !== true) {
+          cartData.push({ ...el.id, quantity: 1 })
+          localStorage.setItem("cart", JSON.stringify(cartData))
+          alert("Product added to The cart")
+        } else {
+          alert("Product already in the cart")
+        }
+
+
+      })
+
+      card.append(img, title, brand, category, price, add_to_cart)
+
+      container.append(card)
+    })
+  }
+
+
+
+</script>
+
+</html>

@@ -1,0 +1,40 @@
+table{
+	 margin-top: 20px; 
+	display: flex;
+	justify-content: space-evenly;
+	border: 1px solid #ddd;
+	
+}
+
+td,th {
+	
+		justify-content: space-evenly;
+	border-spacing: 10px;
+	padding: 5px;
+	
+}
+table {
+	border-spacing: 10px
+} 
+td,
+th{
+	
+	border: 1px solid #ddd;
+	text-align: left;
+	height: 20px;
+	
+	
+	
+}
+
+
+
+#bodyy{
+	border-spacing: 10px;
+position: relative;
+left: 220px;
+}
+
+#validation{
+	margin-left: 15px;
+}

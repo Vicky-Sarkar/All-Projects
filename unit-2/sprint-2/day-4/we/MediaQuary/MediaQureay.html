@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+
+	<style>
+#container{
+	display: grid;
+	grid-template-columns: repeat(4,1fr);
+	grid-auto-rows: 100px ;
+	grid-template-areas:"nav nav nav nav "
+	                    "red green blue gray"
+						"red green blue gray"
+	;
+
+column-gap: 20px;
+row-gap:25px;
+
+}
+
+#container>div{
+	color: rgb(75, 71, 64);
+	font-size: 25px;
+	text-align: 20px;
+	
+	
+}
+#container>div:nth-child(1){
+	font-size: 35px;
+	font-weight: bold;
+	background-color: yellow;
+	grid-area: nav;
+}
+
+#container>div:nth-child(2){
+	background-color:red;
+	grid-area: red;
+}
+#container>div:nth-child(3){
+	background-color: green;
+	grid-area: green;
+}
+#container>div:nth-child(4){
+	background-color: blue;
+	grid-area: blue;
+}
+
+#container>div:nth-child(5){
+	background-color: gray;
+	grid-area: gray;
+}
+
+
+@media  screen and (min-width:601px) and (max-width:800px){
+	
+#container{
+	display: grid;
+	grid-template-columns: repeat(4,1fr);
+	grid-auto-rows: 100px ;
+	grid-template-areas:"nav nav  "
+	                    "red  blue "
+						" green gray"
+	;
+
+column-gap: 20px;
+row-gap:25px;
+}
+}
+
+
+@media   screen and (min-width:100px) and (max-width:600px) {
+	#container{
+	display: grid;
+	grid-template-columns: repeat(4,1fr);
+	grid-auto-rows: 100px ;
+	grid-template-areas:"nav   "
+	                    "red "
+						" gray"
+						"green "
+						"blue "
+	;
+
+column-gap: 20px;
+row-gap:25px;
+
+}
+
+}
+
+	</style>
+</head>
+<body>
+	
+<div id="container">
+
+	<div><p>Navigation</p> </div>
+	<div>Box1</div>
+	<div>box2</div>
+	<div>box3</div>
+	<div>box4</div>
+</div>
+
+</body>
+</html>

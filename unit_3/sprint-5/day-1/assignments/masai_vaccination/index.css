@@ -1,0 +1,19 @@
+nav{
+	height: 80px;
+	width: 100%;
+	/* border: 1px solid red; */
+	display: flex;
+	justify-content: space-between;
+	background-color: aquamarine;
+}
+
+nav>div{
+height: 30px;
+	width: 20%;
+	/* border: 1px solid red; */
+	margin: auto;	
+}
+nav>div a,nav>div:nth-child(1){
+	text-decoration:none ;
+	font-size: 25px;
+}

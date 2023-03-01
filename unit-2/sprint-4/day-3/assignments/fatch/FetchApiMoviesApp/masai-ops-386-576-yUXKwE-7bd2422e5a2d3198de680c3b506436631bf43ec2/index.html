@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Web Movie App</title>
+    <style>
+      /* Write necessery styles here  */
+ /* body{
+			
+		background-image: url('https://i.gifer.com/origin/0c/0cbecdf49afea239fad8497f3cd6e7c7_w200.gif'); 
+		 
+		} */
+      #movie_container{
+display: grid;
+grid-template-columns: repeat(4,1fr);
+justify-content: center;
+gap:20px
+      }
+
+      #box{
+        width: 95%;
+        height: 340px;
+        box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+      }
+
+      .poster{
+        width:90%;
+        height:270px;
+        position: relative;
+        left:15px;
+      }
+      #search-inp{
+        height: 30px;
+        width: 400px;
+        font-size: 20px;  
+      }
+
+      #search-btn{
+        height: 33px;
+        width: 100px;
+        font-size: 20px;
+       cursor: pointer;
+        
+      }
+      #title{
+position: relative;
+bottom:20px;
+text-align: center;
+      }
+
+      #serach{
+        margin: auto;
+        height: 100px;
+        width:50%;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="serach">
+      <input type="text" id="search-inp" placeholder="Search"/>
+      <button id="search-btn"> Search</button>
+      <h1 id="error"></h1>
+    </div>
+    <div id="movie_container"></div>
+  </body>
+
+  <script>
+   
+    let container = document.getElementById("movie_container");
+    let btn= document.getElementById("search-btn");
+  
+let bug = document.getElementById("error");
+    btn.addEventListener("click",()=>{
+        let input = document.getElementById("search-inp").value;
+        fetch(`https://www.omdbapi.com/?i=tt3896198&apikey=1af51133&s=${input}`)
+        .then((res) => {
+          return res.json();
+        }).then((acctulData) => {
+           bug.innerText=""
+            displayData(acctulData.Search)
+        }).catch((error)=>{
+          bug.innerText = "Moveis not Found!"
+         
+        })
+        });
+  
+ function displayData(data){
+   container.innerHTML = "";
+  data.forEach((elem)=>{
+  let div = document.createElement("div");
+   div.setAttribute("id","box")
+  let poster = document.createElement("img");
+  poster.setAttribute("src",elem.Poster)
+   poster.setAttribute("class", "poster")
+  
+  let title = document.createElement("h2");
+  title.setAttribute("id", "title")
+  title.innerText = elem.Title;
+  div.append(poster, title)
+  container.append(div)
+})
+}
+    
+   // Write necessery JS here
+  </script>
+</html>

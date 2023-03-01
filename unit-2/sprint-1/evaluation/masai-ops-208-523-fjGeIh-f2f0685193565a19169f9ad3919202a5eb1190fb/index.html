@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Web-101 C1</title>
+    <style>
+      /* Write all necessery css here  */
+#mainImage{
+  width:75%;
+  height:35%;
+  margin: auto;
+  /* border:1px solid red; */
+}
+h1,h3{
+  text-align: center;
+}
+#content>p{
+  margin: auto;
+  text-align: center;
+  line-height: 25px;
+  width: 80%;
+}
+#mainImage img{
+  width:100%;
+}
+
+#products{
+  display: flex;
+  width:75%;
+  /* height: 10%; */
+  height: 260px;
+  margin: auto;
+ justify-content:space-between;
+  margin-top: 15px;
+  /* border:1px solid red; */
+}
+.productsBox{
+  /* display: block; */
+  width:22%;
+    height: 140px;
+    
+   
+    /* border:1px solid red; */
+}
+.productsBox img{
+  width: 100%;
+  height: 100%;
+}
+
+.productsBox h3{
+position: relative;
+bottom: 10px;
+}
+
+.productsBox p{
+position: relative;
+bottom: 20px;
+text-align: center;
+}
+    </style>
+  </head>
+  <body>
+    <div class="main">
+      <!-- Here you should put the image -->
+    
+<div id="mainImage">
+  <img src="https://masai-course.s3.ap-south-1.amazonaws.com/editor/uploads/2022-04-08/background_517708.png" alt="">
+</div>
+
+      <div id="content">
+        <h1>Services</h1>
+        <p>
+          Why step out when you can get everything delivered home with the tap
+          of a button? Bangalore’s favourite delivery app gets you Food,
+          Grocery, Medicine, Pet Supplies, Fruits & Vegetables, Meat & Fish,
+          Health & Wellness, Gifts and Send Packages from one end of the city to
+          the other. From your local kirana stores to your favourite brands,
+          grocery shopping to your forgotten charger, we are always on the move
+          for you. Why worry about your chores, when you can get it all Dun!
+        </p>
+        <div id="products">
+
+          <div class="productsBox">
+            <img src="https://masai-course.s3.ap-south-1.amazonaws.com/editor/uploads/2022-04-08/product1_197594.png" alt="">
+<h3> Groceries & Essentials</h3>
+<p> User Our Groceries delivery Service and get delivered at your door steps with in a few minutes.  </p>
+
+
+          </div>
+          <div class="productsBox">
+        <img src="https://masai-course.s3.ap-south-1.amazonaws.com/editor/uploads/2022-04-08/product2_241308.png" alt="">
+        <h3>Pick & Drop</h3>
+      <p> User Our Pick & Drop delivery Service and get delivered at your door steps with in a few minutes. </p>
+
+
+
+          </div>
+          <div class="productsBox">
+        <img src="https://masai-course.s3.ap-south-1.amazonaws.com/editor/uploads/2022-04-08/product3_857374.png" alt="">
+        <h3>Restaurants</h3>
+      <p> User Our Restaurants delivery Service and get delivered at your door steps with in a few minutes. </p>
+
+
+
+          </div>
+          <div class="productsBox">
+
+        <img src="https://masai-course.s3.ap-south-1.amazonaws.com/editor/uploads/2022-04-08/product4_514867.png" alt="">
+        <h3>Fruits & Vegetables</h3>
+        <p> User Our Fruits & Vegetables delivery Service and get delivered at your door steps with in a few minutes. </p>
+          </div>
+          <!-- Here create 4 child divs and each child div should have box class -->
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

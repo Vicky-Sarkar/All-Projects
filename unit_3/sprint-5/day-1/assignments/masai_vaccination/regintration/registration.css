@@ -1,0 +1,127 @@
+body{
+	background-color:#237d9e;
+}
+
+
+#container{
+	height: 700px;
+	width: 40%;
+
+	margin: auto;
+	background-color: aquamarine;
+}
+#container>h3{
+	position: relative;
+	top:15px;
+	text-align: center;
+}
+.unique-id{
+	position: relative;
+	 top: 10px; 
+	left:90px;
+}
+
+.inputTag{
+	display: block;
+    height: 30px;
+	width: 60%;
+	/* border:1px solid red; */
+	margin: auto;
+	margin-top: 20px;
+}
+
+#from{
+position: relative;
+top:10px
+}
+
+#desig{
+height: 35px;
+	width: 61%;
+	border: 1px solid gray;
+	margin: auto;
+	margin-top: 10px;
+}
+
+.unique-r{
+position: relative;
+top:7px
+}
+.unique-rd{
+	position: relative;
+	left: 90px;
+	top:9px
+}
+
+#select{
+position: relative;
+	left: 90px;
+	top: 9px
+}
+#sub{
+position: relative;
+	height: 30px;
+	width: 60%;
+	top: 100px;
+	right: 53px;
+}
+
+#sub:hover{
+	cursor: pointer;
+	background-color: darkcyan;
+}
+
+ table{
+	height: 40px;
+	width: 600px;
+	order:1px solid red;
+ }
+
+/* ---------------------------------------------------------------- */
+
+
+
+
+body {
+	background-color: rgb(248, 246, 246);
+}
+
+/* Navbar related css */
+
+#dashbord {
+	display: flex;
+	justify-content: space-evenly;
+	padding: 1%;
+	box-shadow: 2px 2px 5px 5px rgb(235, 235, 235);
+}
+
+#links>div {
+	display: flex;
+	list-style: none;
+}
+
+
+
+table,
+td,
+th {
+	border: 1px solid #ddd;
+	/* text-align: left; */
+}
+
+table {
+	border-collapse: collapse;
+	width: 70%;
+	margin: auto;
+	/* //margin-top: 50px; */
+}
+
+th,
+td {
+	padding: 15px;
+}
+
+tr>th {
+	background-color: teal;
+	color: white;
+}

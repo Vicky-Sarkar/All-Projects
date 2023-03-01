@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Study Lab</title>
+	<style>
+
+		nav{
+			display: flex;
+			width: 100%;
+			height: 60px;
+			
+			box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+		justify-content: space-between;
+		align-items: center;
+		}
+nav>div:nth-child(1)>img{
+width: 80%;
+height: 99%;
+}
+
+
+
+nav>div:nth-child(2)>h4{
+	font-weight: 300;
+font-family:Poppins, Arial, sans-serif;
+color: 
+#0d0d0d;
+}
+nav>div:nth-child(2)>h4:nth-child(2){
+font-family:Poppins, Arial, sans-serif;
+color: 
+#9dbdfd;
+}
+
+		nav>div:nth-child(1){
+			width: 16%;
+			height: 100%;
+			margin-left: 35px;
+		}
+		nav>div:nth-child(2){
+			width: 50%;
+			height: 100%;
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			margin-right: 50px;
+		
+		}
+
+#container{
+	display: flex;
+	width: 100%;
+	height: 600px;
+	margin-top: 20px;
+	
+}
+
+
+#card-1{
+	width: 50%;
+	height: 100%;
+	
+}
+
+#card-2{
+	display: grid;
+	justify-content: center;
+	grid-template-columns: 250px 250px;
+	grid-template-rows:  280px  280px;
+	row-gap: 20px;
+	column-gap: 30px;
+	width: 50%;
+	height: 100%;
+	
+}
+
+#card-2>div{
+box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+	
+}
+
+ #card-2>div >img{
+	width: 28%;
+	margin: 25px;
+}
+
+#card-2>div >img+h4{
+	position: relative;
+	bottom: 40px;
+	left:25px ;
+	font-size: 20px;
+	font-family:Poppins, Arial, sans-serif;
+	font-weight: 200;
+}
+
+#card-2>div >img+h4+p{
+	position: relative;
+	bottom: 40px;
+	left:25px ; 
+	font-size: 15px;
+	font-family:Poppins, Arial, sans-serif;
+	font-weight: 100;
+	line-height: 28px;
+	width: 60%;
+	color:grey;
+
+
+}
+
+#card-1>div{
+	display: flex;
+	margin-top: 30px;
+width: 100%;
+height: 160px;
+
+}
+
+#card-1>h4{
+	margin-left: 40px;
+
+font-family:Poppins, Arial, sans-serif;
+font-weight: 500;
+color: #548dfc;
+}
+
+#card-1> div>p{
+	
+	width: 40%;
+	font-family:Poppins, Arial, sans-serif;
+font-weight: 500;
+	line-height: 30px;
+	margin-left: 30px;
+	
+}
+#card-1>h4+h1{
+	margin-left: 40px;
+
+font-family:Poppins, Arial, sans-serif;
+font-weight: 700;
+color: 
+#333333;
+}
+
+#card-1>h4+h1~p {
+	margin-left: 40px;
+
+font-family:Poppins, Arial, sans-serif;
+font-weight: 100;
+color: grey;
+line-height: 30px;
+}
+
+
+	</style>
+
+
+</head>
+<body>
+
+	
+	
+	<nav>
+<div>
+	<img src="https://lh3.googleusercontent.com/pw/AL9nZEXcLkZKcqQ-Y8-olkozT7mrsLXVJ_5NWmYW2-pwl7RZZALJ8dO_P1jzrmTqCZwpFWWdSXsE2uryKgzxnCCZgDKdAu4nc3lmb6yrtxx7_twwJ5IwAmwetmIWweUolhe-4zAfg6vKYeBsPpA2CEBoG7X8ZcQA2ZcKh96gBEF7yw6ekKmsDTWBg5XUKaR9XZIbpkVKviL5DxVt5Fcze-iPhqSF6k5yjw-BTnn7miHkFr3lgqWPfLOigZc1S9oU0207UMM_mdvHlh_UXyiWRE-7SSW-swbLi-FvLfPY3OUXyFgSMKzxKGr2KfSbGZaU5tNG3a4bsIrMLw-TZxUHYOLivkUPfqMWFNEpVde1m4zWtmVV40Zd1f-PlPHf5xTmYUHwiUBA9kTPaukQBA3mtbzn6_HSyN8MtvSxxiE30mExgIDKmi11QZouuFpJSHMa9QXqp9wKfuuNYkFfzKu2KTjAOp7GXh-l8VYW4SV4yg9bFLkg0N7rj1G0n1ciVknVD8bLPORZuHY5jf6Mhzllx_yvVUbPF9dV_TGTy4vlxRYYbr81fMIBvNOwl6xv4W9CZA4aXprl4GOPTpUx174hB1yb70CuXzA1HNXzBVwkmR7i332yT4fMdw9fHz7iYPOBxLVtLO9jfNIr3p-7ptMgXlCGIt6csQEsuHZ3JEgUKfV20F4WEA-WSMl2RZXdsE8X8CG1_SOWpWop_u3izX-yhEA_dp2J5O0o7rPfbAmI-ujC4_fXmq6OHyGb4D54qSdWWNq3e5qXBWjHkgPqYhwA2_88TCaFU55hkX8x8fsX48KEmujI1z1ZF_pViPbK5QC00INhS4kymoWgBpC6qHl8sA-yIZQc-zTdmKu6EfQSfTnRnArokLp4Gpv9Z_x6cM7xZnlHPwR3w0aqyKkAoYVWGcYaq8j0OA49k_7Tz0MmMJ3ckVbST868c7YgnginDDY=w249-h94-no?authuser=0" alt="">
+</div>
+
+<div> 
+<h4>Home</h4>
+<h4>About</h4>
+<h4>Course</h4>
+<h4>Instructor</h4>
+<h4>Blog</h4>
+<h4>Contact</h4>
+</div>
+	</nav>
+
+
+
+	<div id="container">
+
+		<div id="card-1">
+<h4>WELCOME TO STUDYLAB</h4>
+<h1>We Are StudyLab An Online Learning Center</h1>
+<p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic
+country, in which roasted parts of sentences fly into your mouth.</p>
+
+<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.
+Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
+<div>
+
+	<img src="https://lh3.googleusercontent.com/pw/AL9nZEUDdmh3v84M4f1lI4JyAHmY9m1xAoFmgDTLc9mHRo5tN9A5hB6MlD9TN3H6DkCmXGAuwUeoV0VByaDEmMTF3aOayL2xayaM0y_lFBuiKhiFzGhgePUodZYY5GDI82BaZiP3gWF6U-r3L6zzrUSKzyM89VkiMZawOmo9PJpqhKb-kmUppjcFFuc4JrLKJyhyw5gHj_j8SU5wmGuYtDJ8KgapJNlnoI8m8-4ss5OO4R16Ron-ohrYSQ8H1Q_267AWqZrUIt6BONwBWgBPfHw6i5SKG_Nk030AdsFC5cNij1ZDzRKEM2pBH-ysqbUar9lOWXw19tc0U0Eec4jnvuWs_fAmqdwgHXGkNhicplyU15KdVlIp9-zHOHgHG1U50uTwCMFfF_nYBX5hn6on7ZDyiZrOhUJWwDi2jm7m7jxMy-E7TofXuHoLdzPbrZS4titwFLRRc52uV5q_yvFb_4LjMJnQLTSbuim7E1niD_chpIQhbchoUEASEo97ynO-kGEoyAy2FJ1--pDdmtV9a8v1vHB4S5NGmnVkM7ZCRknUgD9dsLIEDQqNrQGvqbiqyVyXQx0k2G6y_eSPWoB-FbOIOa7WivE_QC6uUHRSRVWVX_GM2B8rExpjaeJFUei3oyJewep9c1zBsxPiXoyHd8nn12yD_lrLZYrZ_fXacEEwpNpZN6wgWeA9ttSlby7f8Ly8HTOox0iY6orlOUOsaZpv4iiz_aseuUvjcX8ztx56npnmz6iDQqCnDoK31eJqslFTCkEngGsNdvGMNg42c5niu6t48F4ryWfnbXeqZgvyiJWzAeDF9y_nk88_hUgcmfh_RQZpqa3xuiFyzQcCKce4VX0kX6ZGr7Hkg-X770CgpromSX5FatscGBXJCbMdFCreiLDfHO2qTEJPIuEQMEERkeyMtTe0cSgacRKzN78qOnzXpQlkN343-NQMcgM=w268-h167-no?authuser=0" alt="">
+
+<p>
+	Learn anything from StudyLab, Watch video
+</p>
+</div>
+		</div>
+
+
+
+		<div id="card-2">
+
+			<div>
+          <img src="https://th.bing.com/th/id/OIP.9_w1MEz-u6ycoERniPNwFAAAAA?pid=ImgDet&w=88&h=88&c=7&dpr=1.6" alt="">
+
+<h4>Top Quality Content</h4>
+
+<p>
+	A Small River named Duden flows by their place and supplies
+</p>
+			</div>
+
+			<div>
+				<img src="https://th.bing.com/th/id/OIP.9_w1MEz-u6ycoERniPNwFAAAAA?pid=ImgDet&w=88&h=88&c=7&dpr=1.6" alt="">
+				<h4>High Skilled Instructor</h4> <p>A Small River named Duden flows by their place and supplies</p></div>
+			
+			
+			
+			<div> 
+				<img src="https://th.bing.com/th/id/OIP.9_w1MEz-u6ycoERniPNwFAAAAA?pid=ImgDet&w=88&h=88&c=7&dpr=1.6" alt="">
+				<h4>Work Class & Quiz</h4> <p> A small river named Duden flows by their place and supplies</p></div>
+			
+			
+			<div> 
+				<img src="https://th.bing.com/th/id/OIP.9_w1MEz-u6ycoERniPNwFAAAAA?pid=ImgDet&w=88&h=88&c=7&dpr=1.6" alt="">
+				<h4>Get Certified</h4> <p>A small river named Duden flows by their place and supplies</p></div>
+		</div>
+	</div>
+</body>
+</html>

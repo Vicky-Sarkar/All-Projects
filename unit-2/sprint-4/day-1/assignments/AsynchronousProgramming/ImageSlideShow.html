@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Slideshow</title>
+	<style>
+#slideshow{
+	height: 450px;	
+	width: 50%;
+
+	margin: auto;
+	margin-top: 100px;
+	}
+
+	#Image{
+width: 100%;
+height: 100%;
+display: block;
+overflow: hidden;
+	}
+
+	body{
+		background-image: url("https://img.freepik.com/premium-vector/night-sky-background-with-stars_104785-147.jpg?w=2000");
+	}
+	</style>
+	
+</head>
+<body>
+	
+	<div id="slideshow"></div>
+
+</body>
+<script>
+	let imgOnj=[
+
+"https://images.indianexpress.com/2022/06/major-movie-review-1200.jpg",
+"https://img1.hotstarext.com/image/upload/f_auto,t_web_m_1x/sources/r1/cms/prod/2607/1062607-h-fa693eabb41d",
+"https://lumiere-a.akamaihd.net/v1/images/p_aladdin2019_17638_d53b09e6.jpeg",
+"https://img1.hotstarext.com/image/upload/f_auto,t_web_vl_3x/sources/r1/cms/prod/6786/1416786-v-ca1e342d9ab7",
+"https://img1.hotstarext.com/image/upload/f_auto,t_web_vl_3x/sources/r1/cms/prod/1327/441327-v",
+"https://img1.hotstarext.com/image/upload/f_auto,t_web_vl_3x/sources/r1/cms/prod/4295/754295-v",
+"https://img1.hotstarext.com/image/upload/f_auto,t_web_vl_3x/sources/r1/cms/prod/4210/1344210-v-d1bc22c4ce77"]
+
+let div= document.getElementById("slideshow")
+let i=0;
+setInterval(() => {
+	let img=document.createElement("img");
+	img.setAttribute("id","Image")
+	img.src = imgOnj[i]
+	div.innerHTML = null;
+	if(i== imgOnj.length-1){
+		i = 0;
+	}
+	i++
+
+div.append(img)
+}, 2000);
+
+
+
+
+
+	// let i = 0;
+	// let id;
+	// function start() {
+	// 	//let images = JSON.parse(localStorage.getItem("image"))
+
+	// 	let cantainer = document.getElementById("cantainer")
+
+	// 	i = i + 1
+	// 	let id = setInterval(function () {
+	// 		if (i == images.length) {
+	// 			i = 0;
+	// 		}
+	// 		cantainer.innerHTML = null;
+	// 		let image = images[i]
+	// 		let img = document.createElement("img");
+
+	// 		img.src = image
+	// 		cantainer.append(img)
+
+	// 		i++;
+	// 	}, 2000)
+	// }
+
+
+	// function pause() {
+	// 	clearInterval(id)
+
+	// }
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+</html>

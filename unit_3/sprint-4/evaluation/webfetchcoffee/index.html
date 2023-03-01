@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Home Page</title>
+  <style>
+    img {
+      width: 100%;
+    }
+
+    /* All Your css for Home page goes here  */
+    #menu-container {
+      display: grid;
+      grid-template-columns: repeat(1, 250px 250px 250px 250px);
+      grid-auto-rows: repeat(200px);
+      justify-content: center;
+      row-gap: 20px;
+      column-gap: 20px;
+    }
+
+    #menu-container>div {
+
+
+      height: auto;
+      border: 1px solid red;
+    }
+
+    #buyyy {
+      position: relative;
+      left: 100px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="nav">
+    <h1>Web Coffee Shop Menu</h1>
+    <a href="./index.html">Home</a>
+    <a href="./order.html">Ordered</a>
+  </div>
+  <div id="filter">
+    <input type="number" id="lower" />
+    <input type="number" id="upper" />
+    <button id="filter-btn">Filter</button>
+  </div>
+  <select id="sort">
+    <option value="">Sort By Price</option>
+    <option value="asc">Ascending</option>
+    <option value="desc">Descending</option>
+  </select>
+  <h1 id="alert"></h1>
+  <div id="menu-container">
+    <!-- Here Append All the Items  -->
+  </div>
+</body>
+<script>
+
+  let fliterdata = []
+  let filterbutton = document.getElementById("filter-btn")
+  filterbutton.addEventListener("click", () => {
+    let lower = document.getElementById("lower").value;
+    let upper = document.getElementById("upper").value;
+    let fliterdataa = fliterdata.filter((elm) => {
+
+      if (upper) {
+        return upper == elm.price
+      } else if (lower)
+        return lower == elm.price
+
+
+    })
+    displayData(fliterdataa)
+  })
+
+
+
+
+
+  // All your JS code for Home Page goes here
+  FetchData()
+  async function FetchData() {
+    const url = `https://dbioz2ek0e.execute-api.ap-south-1.amazonaws.com/mockapi/get-coffee`;
+    try {
+      let res = await fetch(url)
+      let data = await res.json()
+      // return data
+      console.log(data)
+
+      fliterdata = data.data
+      displayData(data.data)
+    } catch {
+      console.log("Error")
+    }
+  }
+
+
+  //console.log(buycoffee)
+  function displayData(data) {
+    let container = document.getElementById("menu-container")
+    container.innerHTML = null;
+    data.forEach((el, index) => {
+      let card = document.createElement("div")
+      let img = document.createElement("img")
+      img.src = el.image
+      let ingredient = document.createElement("h2")
+      ingredient.innerText = el.ingredients
+      let price = document.createElement("p")
+      price.innerText = "₹ " + el.price
+
+      let description = document.createElement("p")
+
+      let buyy = document.createElement("button")
+      buyy.innerText = "Buy"
+      buyy.setAttribute("id", "buyyy")
+
+
+      buyy.addEventListener("click", () => {
+        let buycoffee = JSON.parse(localStorage.getItem("buy")) || []
+        flag = false;
+
+        for (let i = 0; i < buycoffee.length; i++) {
+
+          // console.log(buycoffee[i])
+          if (buycoffee[i] === el) {
+            flag = true
+          }
+        }
+        if (flag == true) {
+          alert("Already Placed Order.")
+        } else {
+          alert("Successfully Placed Order")
+          buycoffee.push({ ...el, quntity: 1 })
+          localStorage.setItem("buy", JSON.stringify(buycoffee))
+        }
+        displayData(data)
+      })
+      description.innerText = el.description.substring(70, 0);
+      card.append(img, ingredient, description, price, buyy);
+      container.append(card)
+    })
+
+
+  }
+
+
+
+</script>
+
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<style>
+#sort{
+	text-align: center;
+}
+#selected{
+	margin: auto;
+	margin-top: 100px;
+	display: block;
+}
+
+	</style>
+</head>
+<body>
+	<h1 id="sort"></h1>
+
+	<select  id="selected">
+		<option value=""> Select Values</option>
+		<option value="asc"> Ascending</option>
+		<option value="des">Desceding</option>
+	</select>
+</body>
+<script>
+
+	let numbers = [0, 1, 2, 30, 10, 25, 40, 30];
+	let display=document.getElementById("sort")
+let select=document.getElementById("selected");
+	select.addEventListener("change",()=>{
+		sortFun()
+	})
+
+
+function sortFun(){
+	let selected= select.value
+
+if(selected=="asc"){
+	numbers.sort(function (a, b) {
+		return a - b
+	})
+	display.innerText= "Ascending Order:-"+ numbers.join(" ")
+	display.style.color="green"
+}
+
+	
+
+
+
+	if (selected == "des") {
+		let y = numbers.sort(function (a,b) {
+			return b - a;
+		})
+		display.innerText ="Descending:-"+ numbers.join(" ");
+		display.style.color = "red"
+	};
+
+	
+}
+	
+	
+</script>
+</html>
+

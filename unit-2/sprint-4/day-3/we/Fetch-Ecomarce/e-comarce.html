@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>E-Comarce</title>
+
+	<style>
+#container{
+	display: grid;
+	grid-template-columns: repeat(4,1fr);
+	justify-content: center;
+	gap:40px;
+	
+	margin: auto;
+}
+#container>div{
+	width: 70%;
+	height: 300px;
+	
+}
+
+#image{
+	width: 170px;
+	height: 150px;
+}
+p+p{
+	text-align: center;
+	color: gray;
+}
+p{
+text-align: center;
+color: rgb(11, 84, 163);	
+}
+	</style>
+</head>
+
+<body>
+	<div id="container">
+
+	</div>
+</body>
+<script>
+	let container=document.getElementById("container");
+    //const api=
+	fetch("https://fakestoreapi.com/products")
+.then((responseObject)=>{
+
+	
+return responseObject.json();
+
+ }).then((acctulData)=>{
+	 displayProduct(acctulData)
+ }).catch((error)=>{
+console.log(error)
+ });
+
+
+function displayProduct(data){
+data.forEach((element)=>{
+	let product=document.createElement("div");
+	let image=document.createElement("img")
+    image.setAttribute("src",element.image);
+	image.setAttribute("id","image")
+	product.append(image);
+	let title= document.createElement("p");
+	title.setAttribute("id","ptage")
+	title.innerText=element.title;
+	// let discription = document.createElement("p");
+	// discription.innerText = element.description;
+	let price = document.createElement("p");
+	price.innerText = "₹ "+element.price;
+	product.append(image,title,price)
+	container.append(product);
+})
+}
+
+</script>
+</html>

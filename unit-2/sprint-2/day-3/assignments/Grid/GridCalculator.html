@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+
+	<style>
+		h1 {
+			font-size: 40px;
+			color: teal;
+			text-align: center;
+		}
+
+		#calclutor {
+			height: 400px;
+			width: 300px;
+			margin: auto;
+			border: 1px solid white;
+			border-radius: 10px;
+			margin-top: 40px;
+			box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+		}
+
+		#display {
+			height: 45px;
+			width: 250px;
+			box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+			border-radius: 10px;
+			margin: auto;
+			margin-top: 20px;
+			box-sizing: border-box;
+		}
+
+		#keybord {
+			height: 260px;
+			width: 250px;
+			box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+			border-radius: 10px;
+			margin: auto;
+			margin-top: 40px;
+			display: grid;
+			gap: 10px;
+			grid-template-columns: repeat(4, 1fr);
+			grid-template-rows: repeat(4, 50px);
+			padding: 10px;
+		}
+
+		#keybord>div {
+			box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+			font-size: 20px;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			border-radius: 10px;
+			font-weight: bold;
+		}
+
+		.black {
+			color: white;
+			background-color: black;
+		}
+
+		#red {
+			background-color: red;
+			color: white;
+		}
+	</style>
+</head>
+
+<body>
+	<h1>Masai Calculator</h1>
+	<div id="calclutor">
+		<div id="display"> </div>
+
+
+
+
+		<div id="keybord">
+			<div>1</div>
+			<div>2</div>
+			<div>3</div>
+			<div class="black">+</div>
+			<div>4</div>
+			<div>5</div>
+			<div>6</div>
+			<div class="black">-</div>
+			<div>7</div>
+			<div>8</div>
+			<div>9</div>
+			<div class="black">*</div>
+			<div id="red">C</div>
+			<div>0</div>
+			<div class="black">=</div>
+			<div class="black">/</div>
+		</div>
+
+
+
+	</div>
+
+
+</body>
+
+</html>

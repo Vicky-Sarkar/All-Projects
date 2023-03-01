@@ -1,0 +1,149 @@
+/* Write your styles here  */
+#header>h1
+ {
+  text-align: center;
+}
+
+#header>h1+p {
+  text-align: center;
+  width: 50%;
+  margin: auto;
+  margin-bottom: 30px;
+}
+
+#doctors{
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  grid-template-rows: repeat( 1,370px);
+  width: 80%;
+  
+  margin: auto;
+  gap:10px;
+ 
+}
+#doctors>div{
+ 
+  text-align: center;
+box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+}
+
+#doctors>div:hover {
+cursor: pointer;
+  text-align: center;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+}
+
+#doctors img{
+  width: 100%;
+}
+    #doctors h6{
+  position: relative;
+  bottom: 30px;
+}
+ #doctors h3 {
+   position: relative;
+   bottom: 15px;
+ }
+
+    #doctors p{
+      position: relative;
+        bottom: 40px;
+        width: 75%;
+        margin: auto;
+    }
+
+#service{
+display: grid;
+grid-template-columns: repeat(3,1fr);
+width: 80%;
+  margin: auto;
+  gap: 10px;
+  margin-top: 50px;
+}
+#service >div{
+text-align: center;
+}
+
+#doctors div button{
+  padding: 5px;
+  border-radius: 10px;
+  border: none;
+  position: relative;
+  bottom:20px;
+  
+}
+#doctors div button:hover {
+  cursor: pointer;
+
+}
+
+
+ #doctors div>button {
+   color: #4bbff2;
+  position: relative;
+    right:20px;
+  
+ }
+
+ #doctors div   >button+button{
+  color:white;
+  background-color: #ff7458;
+  padding: 5px;
+  position: relative;
+    left: 20px;
+  
+} 
+
+/* button:nth-child(1) {
+  color: purple;
+} */
+
+body {
+   /* background-color: red;  */
+}
+
+/* keep media queries at the bottom */
+/* Medium screens */
+@media all and (min-width: 451px) and (max-width: 750px) {
+
+#doctors {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    width: 80%;
+    margin: auto;
+    gap: 10px;
+  }
+
+#service {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  width: 80%;
+  margin: auto;
+  gap: 10px;
+  margin-top: 50px;
+}
+
+
+
+}
+/* Small screens */
+@media all and (min-width: 100px) and (max-width: 450px) {
+
+  #doctors {
+      display: grid;
+      grid-template-columns: repeat(1, 1fr);
+      width: 80%;
+      margin: auto;
+      gap: 10px;
+    }
+
+
+        #service {
+          display: grid;
+          grid-template-columns: repeat(1, 1fr);
+          width: 80%;
+          margin: auto;
+          gap: 10px;
+          margin-top: 50px;
+        }
+}

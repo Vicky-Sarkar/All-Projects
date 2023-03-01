@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>OTP System</title>
+</head>
+<body>
+	<input type="number" placeholder="Enter the otp" id="otp">
+</body>
+<script>
+let input=document.getElementById("otp");
+let acctulOTP=1234;
+let promise= new Promise((resolve,reject)=>{
+setTimeout(()=>{
+	if (acctulOTP == input.value) {
+		resolve("OTP Match")
+	} else {
+		reject("Check your email correctly")
+	}
+},5000)
+
+
+})
+
+	promise.then((res)=>{
+		alert(res)
+	}).then((error)=>{
+		alert(error)
+	})
+
+
+</script>
+</html>

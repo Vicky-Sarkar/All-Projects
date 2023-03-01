@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Puppy</title>
+
+	
+	<style>
+		*{
+			text-align: center;
+		}
+img{
+		width:30%;
+	}
+	</style>
+</head>
+<body>
+	<img src="https://images.pexels.com/photos/257540/pexels-photo-257540.jpeg?auto=compress&cs=tinysrgb&w=600" alt="">
+
+<h1 id="LikeHeading">0</h1>
+<h1 id="DisLikeHeading" >0</h1>
+<button id="like">Like</button>
+<button id="dislike">Dislike</button>
+</body>
+<script>
+  let   letLikeHeading=document.getElementById("LikeHeading")
+	let DisLikeHeading = document.getElementById("DisLikeHeading")
+	let like = document.getElementById("like")
+	let dislike = document.getElementById("dislike")
+
+	let likeCounter= JSON.parse(localStorage.getItem("LikeStore"));
+	let DisLikeCounter = JSON.parse(localStorage.getItem("DisLikeStore"));
+
+if(likeCounter==null){
+	likeCounter=0;
+}
+	if (DisLikeCounter == null) {
+		DisLikeCounter = 0;
+	}
+	if (DisLikeCounter == null) {
+		DisLikeCounter = 0;
+	}
+	LikeHeading.innerText = likeCounter;
+	DisLikeHeading.innerText = DisLikeCounter;
+	like.addEventListener("click",()=>{
+		likeCounter++
+		LikeHeading.innerText= likeCounter;
+		localStorage.setItem("LikeStore",JSON.stringify(likeCounter))
+	})
+
+	dislike.addEventListener("click",()=>{
+		DisLikeCounter++;
+		DisLikeHeading.innerText = DisLikeCounter;
+		localStorage.setItem("DisLikeStore", JSON.stringify(DisLikeCounter))
+	})
+</script>
+</html>
